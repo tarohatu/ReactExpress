@@ -1,4 +1,4 @@
- postgresql:
+  postgresql:
     image: postgres:10.5
     container_name: postgresql
     ports:
@@ -12,3 +12,7 @@
     hostname: postgres
     restart: always
     user: root
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
