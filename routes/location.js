@@ -10,4 +10,21 @@ router.get('/', async (req, res, next) => {
   return res.json(locations)
 })
 
+router.post('/', async (req, res, next) => {
+    try {
+        let user = await db.user.findById(req.body.user_id)
+        if(!user) {
+            return res.sendStatus(404)
+        }
+        let result = await db.location.create({
+            user_id: user.id,
+            latitude: req.body.latitude,
+            longitude: req.body.longitude
+        })
+        return res.json(result)
+    } catch (error) {
+        return res.send(error)
+    }
+})
+
 module.exports = router

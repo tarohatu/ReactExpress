@@ -30,14 +30,14 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   user.findById = async (id) => {
-    let user = await user.findOne({
+    let result = await user.findOne({
       where: { id: id },
       attributes: ['id', 'name', 'user_name']
     })
     .catch(error => {
       throw error
     })
-    return user
+    return result
   }
 
   user.prototype.authenticate = async (password) => {

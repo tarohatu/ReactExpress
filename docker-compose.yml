@@ -12,7 +12,21 @@
     hostname: postgres
     restart: always
     user: root
+
   redis:
     image: redis:latest
     ports:
       - 6379:6379
+
+  pgadmin4:
+    image: dpage/pgadmin4:3.3
+    container_name: pgadmin4
+    ports:
+      - 80:80
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin/storage
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root
+      PGADMIN_DEFAULT_PASSWORD: root
+    hostname: pgadmin4
+    restart: always
