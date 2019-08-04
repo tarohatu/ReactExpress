@@ -27,7 +27,17 @@ module.exports = (sequelize, DataTypes) => {
     return await user.findAll({
       attributes: ['id', 'name', 'user_name']
     })
-  }
+  },
+
+  user.findByUserName = async (userName) => {
+    let result = await user.findOne({
+      where: { user_name: userName},
+    })
+    .catch(error => {
+      throw error
+    })
+    return result
+  },
 
   user.findById = async (id) => {
     let result = await user.findOne({
@@ -40,11 +50,8 @@ module.exports = (sequelize, DataTypes) => {
     return result
   }
 
-  user.prototype.authenticate = async (password) => {
-    let isValid = await bcrypt.compare(password, this.password_hash)
-    .catch(error => {
-      throw error
-    })
+  user.authenticate = async (loginUser, password) => {
+    let isValid = await bcrypt.compare(password, loginUser.password_hash)
     return isValid
   }
 
