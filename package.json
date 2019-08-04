@@ -34,6 +34,7 @@
     "redux-saga": "^1.0.5",
     "sequelize": "^5.12.1",
     "sequelize-cli": "^5.5.0",
+    "socket.io": "^2.2.0",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
