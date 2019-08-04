@@ -1,9 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import LoginPage from './pages/login/login'
+import React from "react"
+import ReactDOM from "react-dom"
+import Application from './pages/application/applicationContainer'
+import { configureStore } from './store'
+import { Provider } from 'react-redux'
+const store = configureStore()
 
-const Index = () => {
-  return( <div>Hello React!</div>);
-};
-
-ReactDOM.render(<LoginPage />, document.getElementById("index")); 
+ReactDOM.render(
+  <Provider store={store}>
+    <Application />
+  </Provider>,
+  document.getElementById("index")
+) 
