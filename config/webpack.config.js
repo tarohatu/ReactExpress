@@ -13,6 +13,14 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: ["css-loader"]
+      },
+      {
+        test: /\.png$/,
+        use: ["file-loader"]
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {

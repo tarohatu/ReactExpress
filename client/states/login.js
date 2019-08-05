@@ -28,6 +28,7 @@ export const reducer = handleActions({
   }),
   [actions.loginRequestFailed]: (state, action) => ({
     ...state,
+    loading: false,
     error: action.payload.error,
   })
 

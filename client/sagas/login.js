@@ -7,11 +7,16 @@ const getLoginInfo = state => state.login
 
 function* login(action) {
   const loginInfo = yield select(getLoginInfo)
-  const result = yield call(LoginAPI.login, loginInfo.id, loginInfo.password)
-  if(!result) {
-    yield put(LoginActions.actions.loginRequestFailed("ログインに失敗しました"))
-  } else {
-    yield put(ApplicationActions.actions.accessTokenUpdated(result.data.token))
+  try {
+    const result = yield call(LoginAPI.login, loginInfo.id, loginInfo.password)
+    if(!result) {
+      yield put(LoginActions.actions.loginRequestFailed("ログインに失敗しました"))
+    } else {
+      yield put(LoginActions.actions.loginRequestSucceeded())
+      yield put(ApplicationActions.actions.accessTokenUpdated(result.data.token))
+    }
+  } catch (error) {
+    yield put(LoginActions.actions.loginRequestFailed(error))
   }
 }
 
