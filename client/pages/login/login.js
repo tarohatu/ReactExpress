@@ -4,13 +4,13 @@ import styled from 'styled-components'
 class LoginPage extends Component {
   render() {
     const { id, password } = this.props.login
-    const { idChanged, passwordChanged } = this.props
+    const { idChanged, passwordChanged, loginRequested } = this.props
     return(
       <Wrapper>
         <Card>
           <Input placeholder="ID" value={ id } onChange={(e)=> { idChanged(e.target.value) }}/>
           <Input placeholder="Password" type="password" value={ password } onChange={(e) => { passwordChanged(e.target.value)}}/>
-          <Button>ログインする</Button>
+          <Button onClick={loginRequested}>ログインする</Button>
         </Card>
       </Wrapper>
     )

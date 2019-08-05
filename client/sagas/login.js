@@ -11,8 +11,7 @@ function* login(action) {
   if(!result) {
     yield put(LoginActions.actions.loginRequestFailed("ログインに失敗しました"))
   } else {
-    yield put(LoginAPI.action.loginRequestSucceeded())
-    yield put(ApplicationActions.actions.accessTokenUpdated(result.token))
+    yield put(ApplicationActions.actions.accessTokenUpdated(result.data.token))
   }
 }
 
