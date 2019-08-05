@@ -11,7 +11,7 @@ module.exports = new JWTStrategy(
     secretOrKey   : process.env.JWT_SECRET || 'secret'
   },
   async (payload, done) => {
-    let user = db.user.findById(payload.id)
+    let user = await db.user.findById(payload.id)
     .catch(error => {
       return done(error)
     })
