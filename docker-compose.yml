@@ -1,3 +1,19 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+      - 3000:3000
+    volumes:
+      - .:/src
+    links:
+      - postgresql
+      - redis
+    stdin_open: true
+
   postgresql:
     image: postgres:10.5
     container_name: postgresql
