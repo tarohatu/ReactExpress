@@ -5,7 +5,7 @@ import MainPage from '../main/main'
 class Application extends Component {
   render() {
     const { token } = this.props.application
-    const page = token ? <MainPage /> : <MainPage />
+    const page = token ? <MainPage /> : <LoginPage />
     return(
       page
     )

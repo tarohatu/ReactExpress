@@ -11,11 +11,11 @@ const initialState = {
 export const reducer = handleActions({
   [actions.loginIdChanged]: (state, action) => ({
     ...state,
-    id: action.payload.id,
+    id: action.payload,
   }),
   [actions.loginPasswordChanged]: (state, action) => ({
     ...state,
-    password: action.payload.password,
+    password: action.payload,
   }),
   [actions.loginRequested]: (state) => ({
     ...state,
@@ -29,7 +29,7 @@ export const reducer = handleActions({
   [actions.loginRequestFailed]: (state, action) => ({
     ...state,
     loading: false,
-    error: action.payload.error,
+    error: action.payload,
   })
 
 }, initialState)
