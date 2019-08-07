@@ -40,7 +40,7 @@ describe('actions', () => {
     const action = actions.loginRequestSucceeded()
     expect(action).toEqual(expectedAction)
   })
-  it('should create an action to login password changed', () => {
+  it('should create an action to login request failed', () => {
     const type = "LOGIN_REQUEST_FAILED"
     const text = '404 Error'
     const expectedAction = {
