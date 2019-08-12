@@ -7,7 +7,7 @@ module.exports = new LocalStrategy(
   {
     usernameField: 'user_name',
     passwordField: 'password',
-    session: false
+    session: true
   },
   async (user_name, password, done) => {
     try{
