@@ -65,12 +65,12 @@ const checkAuthentication = (req, res, next) => {
   if (req.isAuthenticated()) {
     next()
   } else {
-    res.status(204).send()
+    res.status(403).send()
   }
 }
 
-app.use('/api/v1', passport.authenticate('jwt', {session: false}), indexRouter)
-app.get('/', (req, res) => {
+app.use('/api/v1', indexRouter)
+app.get('/', checkAuthentication, (req, res) => {
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 

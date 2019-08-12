@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import LoginPage from '../login/loginContainer'
-import MainPage from '../main/main'
+import MainPage from '../main/mainContainer'
 
 class Application extends Component {
   render() {
