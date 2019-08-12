@@ -70,7 +70,7 @@ const checkAuthentication = (req, res, next) => {
 }
 
 app.use('/api/v1', indexRouter)
-app.get('/', checkAuthentication, (req, res) => {
+app.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
