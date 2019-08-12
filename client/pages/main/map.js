@@ -11,7 +11,7 @@ class MapView extends Component {
     const { locations } = this.props.map
     console.log(locations)
     return(
-        <Map center={center} zoom={13} style={{ width: '80vw', height: '90vh' }} >
+        <Map center={center} zoom={13} style={{ width: '100vw', height: '90vh' }} >
           <TileLayer
             attribution='&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors'
             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
